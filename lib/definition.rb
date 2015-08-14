@@ -19,7 +19,7 @@ class Definition
     @@definitions = []
   end
 
-  # define_singleton_method(:find) do |id|
-  #   @@words[id - 1]
-  # end
+  define_singleton_method(:find) do |id|
+    @@definitions[id - 1]
+  end
 end

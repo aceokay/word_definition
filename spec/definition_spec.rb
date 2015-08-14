@@ -37,11 +37,11 @@ describe(Definition) do
 
   describe('#id') do
     it('returns the id of a given instance of the class Definition') do
-      test_definition = Definition.new({:definition => 'love'})
+      test_definition = Definition.new({:definition => 'A wonderful feeling'})
       test_definition.save()
-      test_definition2 = Definition.new({:definition => 'peace'})
+      test_definition2 = Definition.new({:definition => 'A state to strive for'})
       test_definition2.save()
-      test_definition3 = Definition.new({:definition => 'happiness'})
+      test_definition3 = Definition.new({:definition => 'A state of being that is crucial for development'})
       test_definition3.save()
       expect(test_definition2.id()).to(eq(2))
       expect(test_definition3.id()).to(eq(3))
@@ -49,17 +49,17 @@ describe(Definition) do
     end
   end
 
-  # describe('.find') do
-  #   it('takes an word instance ID and returns the word instance') do
-  #     test_word = Word.new({:word => 'earth'})
-  #     test_word.save()
-  #     test_word2 = Word.new({:word => 'wind'})
-  #     test_word2.save()
-  #     test_word3 = Word.new({:word => 'fire'})
-  #     test_word3.save()
-  #     expect(Word.find(test_word.id())).to(eq(test_word))
-  #     expect(Word.find(test_word2.id())).to(eq(test_word2))
-  #     expect(Word.find(test_word3.id())).to(eq(test_word3))
-  #   end
-  # end
+  describe('.find') do
+    it('takes a Definition instance ID and returns the Definition instance') do
+      test_definition = Definition.new({:definition => 'The only known habitable planet to humans'})
+      test_definition.save()
+      test_definition2 = Definition.new({:definition => 'A force of low and high pressures'})
+      test_definition2.save()
+      test_definition3 = Definition.new({:definition => 'A result of combustion'})
+      test_definition3.save()
+      expect(Definition.find(test_definition.id())).to(eq(test_definition))
+      expect(Definition.find(test_definition2.id())).to(eq(test_definition2))
+      expect(Definition.find(test_definition3.id())).to(eq(test_definition3))
+    end
+  end
 end
