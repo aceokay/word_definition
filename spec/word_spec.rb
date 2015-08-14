@@ -71,6 +71,16 @@ describe(Word) do
       expect(test_word.definitions()).to(eq([]))
     end
 
-    # do more here to test an actual storage of descriptions
+    # returns an empty array if empty, returns definition strings otherwise
+  end
+
+  describe('#add_definition') do
+    it('saves multiple definitions of a word to one instance of Word') do
+      test_word = Word.new({:word => 'egg'})
+      test_word.save()
+      test_word.add_definition(Definition.new({:definition => "A product of birds"}))
+      test_word.add_definition(Definition.new({:definition => "A tasty treat"}))
+      expect(test_word.definitions()).to(eq(["A product of birds","A tasty treat"]))
+    end
   end
 end
