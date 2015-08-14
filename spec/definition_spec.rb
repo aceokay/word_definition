@@ -35,20 +35,20 @@ describe(Definition) do
     end
   end
 
-  # describe('#id') do
-  #   it('returns the id of a given instance of the class Word') do
-  #     test_word = Word.new({:word => 'love'})
-  #     test_word.save()
-  #     test_word2 = Word.new({:word => 'peace'})
-  #     test_word2.save()
-  #     test_word3 = Word.new({:word => 'happiness'})
-  #     test_word3.save()
-  #     expect(test_word2.id()).to(eq(2))
-  #     expect(test_word3.id()).to(eq(3))
-  #     expect(test_word.id()).to(eq(1))
-  #   end
-  # end
-  #
+  describe('#id') do
+    it('returns the id of a given instance of the class Definition') do
+      test_definition = Definition.new({:definition => 'love'})
+      test_definition.save()
+      test_definition2 = Definition.new({:definition => 'peace'})
+      test_definition2.save()
+      test_definition3 = Definition.new({:definition => 'happiness'})
+      test_definition3.save()
+      expect(test_definition2.id()).to(eq(2))
+      expect(test_definition3.id()).to(eq(3))
+      expect(test_definition.id()).to(eq(1))
+    end
+  end
+
   # describe('.find') do
   #   it('takes an word instance ID and returns the word instance') do
   #     test_word = Word.new({:word => 'earth'})
@@ -61,15 +61,5 @@ describe(Definition) do
   #     expect(Word.find(test_word2.id())).to(eq(test_word2))
   #     expect(Word.find(test_word3.id())).to(eq(test_word3))
   #   end
-  # end
-  #
-  # describe('#definitions') do
-  #   it('returns all definitions instances of a given instance of the class Word') do
-  #     test_word = Word.new({:word => 'moon'})
-  #     test_word.save()
-  #     expect(test_word.definitions()).to(eq([]))
-  #   end
-  #
-  #   # do more here to test an actual storage of descriptions
   # end
 end
