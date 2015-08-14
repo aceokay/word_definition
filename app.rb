@@ -17,3 +17,22 @@ get('/') do
   end
   erb(:index)
 end
+
+post('/') do
+  new_word = params.fetch('word')
+  new_definition = params.fetch('definition')
+  new_word_instance = Word.new({:word => new_word})
+  new_word_instance.save()
+  new_definition_instance = Definition.new({:definition => new_definition})
+  new_word_instance.add_definition(new_definition_instance)
+  words = Word.all()
+  @word_list_strings = []
+  words.each() do |word|
+    @word_list_strings.push(word.word())
+  end
+  erb(:index)
+end
+
+get('/words/new') do
+  erb(:word_form)
+end
