@@ -13,7 +13,7 @@ describe('word and definition execution path', {:type => :feature}) do
     expect(page).to have_content('taxi')
   end
 
-  it('visits a word and adds a new definition') do
+  it('visits a previously saved word and adds a new definition') do
     visit('/')
     click_link('taxi')
     fill_in('definition', :with => 'A smelly ride indeed.')
