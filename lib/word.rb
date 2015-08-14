@@ -19,4 +19,8 @@ class Word
   define_singleton_method(:clear) do
     @@words = []
   end
+
+  define_singleton_method(:find) do |id|
+    @@words[id - 1]
+  end
 end
