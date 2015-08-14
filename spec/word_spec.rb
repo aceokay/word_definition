@@ -1,5 +1,6 @@
 require('rspec')
 require('word')
+require('definition')
 
 describe(Word) do
   before() do
@@ -60,6 +61,14 @@ describe(Word) do
       expect(Word.find(test_word.id())).to(eq(test_word))
       expect(Word.find(test_word2.id())).to(eq(test_word2))
       expect(Word.find(test_word3.id())).to(eq(test_word3))
+    end
+  end
+
+  describe('#definitions') do
+    it('returns all definitions instances of a given instance of the class Word') do
+      test_word = Word.new({:word => 'moon'})
+      test_word.save()
+      expect(test_word.definitions()).to(eq([]))
     end
   end
 end
