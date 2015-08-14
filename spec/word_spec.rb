@@ -17,6 +17,14 @@ describe(Word) do
     end
   end
 
+  describe('.clear') do
+    it('destroys all saved instances within the class Word') do
+      test_word = Word.new({:word => 'cheese'})
+      test_word.save()
+      expect(Word.clear()).to(eq([]))
+    end
+  end
+
   describe('.all') do
     it('returns all saved instance items from the class Word') do
       expect(Word.all()).to(eq([]))
