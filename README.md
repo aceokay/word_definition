@@ -1,6 +1,6 @@
 # _Word & Definition_
 
-##### _A simple dictionary app, 8/11/2015_
+##### _A simple dictionary app, 8/14/2015_
 
 #### By _**Austin Kincaid**_
 
