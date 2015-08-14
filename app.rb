@@ -28,7 +28,7 @@ post('/') do
   words = Word.all()
   @word_list_strings = []
   words.each() do |word|
-    @word_list_strings.push(word.word())
+    @word_list_strings.push([word.word(), word.id()])
   end
   erb(:index)
 end
@@ -37,7 +37,7 @@ get('/words/new') do
   erb(:word_form)
 end
 
-get('/words/00') do
+get('/words/0') do
   words = Word.all()
   @word_list_strings = []
   words.each() do |word|
@@ -51,6 +51,11 @@ get('/words/00') do
 end
 
 get('/words/:id') do
-  @word = Word.find(params.fetch('id'.to_id()))
+  word_id_string = params.fetch('id')
+  @word = Word.find(word_id_string.to_i())
   erb(:word_info)
 end
+
+# post('/words/:id') do
+#
+# end
