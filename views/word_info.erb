@@ -1,0 +1,14 @@
+<h1><%= @word.word() %></h1>
+
+<ul>
+  <% @word.definitions().each() do |definition| %>
+  <li><%= definition %></li>
+  <% end %>
+</ul>
+
+<form action="/words/<%= @word.id() %>" method="post">
+  <label for="definition">Add Additional Definition</label>
+  <input type="text" name="definition">
+
+  <button type="submit">Submit</button>
+</form>
