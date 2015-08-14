@@ -8,7 +8,7 @@
 
 _This app can take new words and definitions and display them as needed. Users can visit specific words and add additional definitions on top of those already stored._
 
-_You can find a working prototype here: Coming Soon!_
+_You can find a working prototype here: https://stark-beach-2181.herokuapp.com/_
 
 ## Setup
 
