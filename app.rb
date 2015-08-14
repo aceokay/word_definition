@@ -9,11 +9,11 @@ get('/') do
   words = Word.all()
   @word_list_strings = []
   words.each() do |word|
-    @word_list_strings.push(word.word())
+    @word_list_strings.push([word.word(), word.id()])
   end
   if words.length() < 1
     help_message = "There aren't any words yet! Help us out and put some in!"
-    @word_list_strings.push(help_message)
+    @word_list_strings.push([help_message, 00])
   end
   erb(:index)
 end
@@ -35,4 +35,22 @@ end
 
 get('/words/new') do
   erb(:word_form)
+end
+
+get('/words/00') do
+  words = Word.all()
+  @word_list_strings = []
+  words.each() do |word|
+    @word_list_strings.push([word.word(), word.id()])
+  end
+  if words.length() < 1
+    help_message = "There aren't any words yet! Help us out and put some in!"
+    @word_list_strings.push([help_message, 00])
+  end
+  erb(:index)
+end
+
+get('/words/:id') do
+  @word = Word.find(params.fetch('id'.to_id()))
+  erb(:word_info)
 end
