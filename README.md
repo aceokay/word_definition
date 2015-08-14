@@ -19,7 +19,7 @@ _The Gemfile will take you the rest of the way._
 
 ## Technologies Used
 
-_Ruby, Bootswatch Bootstrap Stylesheet, Rspec, Pry, and Capybara._
+_Ruby, Bootstrap, Rspec, Pry, and Capybara._
 
 ### Legal
 
