@@ -12,4 +12,14 @@ describe('word and definition execution path', {:type => :feature}) do
     click_button('Submit')
     expect(page).to have_content('taxi')
   end
+
+  it('visits a word and adds a new definition') do
+    visit('/')
+    click_link('taxi')
+    fill_in('definition', :with => 'A smelly ride indeed.')
+    click_button('Submit')
+    expect(page).to have_content('taxi')
+    expect(page).to have_content('An expensive life choice')
+    expect(page).to have_content('A smelly ride indeed.')
+  end
 end

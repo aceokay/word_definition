@@ -38,16 +38,7 @@ get('/words/new') do
 end
 
 get('/words/0') do
-  words = Word.all()
-  @word_list_strings = []
-  words.each() do |word|
-    @word_list_strings.push([word.word(), word.id()])
-  end
-  if words.length() < 1
-    help_message = "There aren't any words yet! Help us out and put some in!"
-    @word_list_strings.push([help_message, 00])
-  end
-  erb(:index)
+  erb(:word_form)
 end
 
 get('/words/:id') do
@@ -56,6 +47,11 @@ get('/words/:id') do
   erb(:word_info)
 end
 
-# post('/words/:id') do
-#
-# end
+post('/words/:id') do
+  word_id_string = params.fetch('id')
+  @word = Word.find(word_id_string.to_i())
+  new_definition = params.fetch('definition')
+  new_definition_instance = Definition.new({:definition => new_definition})
+  @word.add_definition(new_definition_instance)
+  erb(:word_info)
+end
