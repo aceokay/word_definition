@@ -13,28 +13,28 @@ describe(Definition) do
     end
   end
 
-  # describe('#save') do
-  #   it('saves a given instance of the Word class to the Word class array') do
-  #     test_word = Word.new({:word => 'cheese'})
-  #     test_word.save()
-  #     expect(Word.all()).to(eq([test_word]))
-  #   end
-  # end
-  #
-  # describe('.clear') do
-  #   it('destroys all saved instances within the class Word') do
-  #     test_word = Word.new({:word => 'cheese'})
-  #     test_word.save()
-  #     expect(Word.clear()).to(eq([]))
-  #   end
-  # end
-  #
-  # describe('.all') do
-  #   it('returns all saved instance items from the class Word') do
-  #     expect(Word.all()).to(eq([]))
-  #   end
-  # end
-  #
+  describe('#save') do
+    it('saves a given instance of the Definition class to the Definition class array') do
+      test_definition = Definition.new({:definition => 'A dairy product consisting of fat'})
+      test_definition.save()
+      expect(Definition.all()).to(eq([test_definition]))
+    end
+  end
+
+  describe('.clear') do
+    it('destroys all saved instances within the class Definition') do
+      test_definition = Definition.new({:definition => 'A dairy product consisting of fat'})
+      test_definition.save()
+      expect(Definition.clear()).to(eq([]))
+    end
+  end
+
+  describe('.all') do
+    it('returns all saved instance items from the class Definition') do
+      expect(Definition.all()).to(eq([]))
+    end
+  end
+
   # describe('#id') do
   #   it('returns the id of a given instance of the class Word') do
   #     test_word = Word.new({:word => 'love'})
