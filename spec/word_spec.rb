@@ -81,6 +81,32 @@ describe(Word) do
       test_word.add_definition(Definition.new({:definition => "A product of birds"}))
       test_word.add_definition(Definition.new({:definition => "A tasty treat"}))
       expect(test_word.definitions()).to(eq(["A product of birds","A tasty treat"]))
+      expect(test_word.definitions()[0]).to(eq("A product of birds"))
+      expect(test_word.definitions()[1]).to(eq("A tasty treat"))
+    end
+
+    it('saves multiple definitions of multiple words to several instances of Word') do
+      test_word = Word.new({:word => 'egg'})
+      test_word.save()
+      test_word2 = Word.new({:word => 'bread'})
+      test_word2.save()
+      test_word3 = Word.new({:word => 'milk'})
+      test_word3.save()
+      test_word.add_definition(Definition.new({:definition => "A product of birds"}))
+      test_word.add_definition(Definition.new({:definition => "A tasty treat"}))
+      test_word2.add_definition(Definition.new({:definition => "A product of grains"}))
+      test_word2.add_definition(Definition.new({:definition => "A breadly treat"}))
+      test_word3.add_definition(Definition.new({:definition => "A product of Bovine (generally speaking)"}))
+      test_word3.add_definition(Definition.new({:definition => "A milky treat"}))
+      expect(test_word.definitions()).to(eq(["A product of birds","A tasty treat"]))
+      expect(test_word.definitions()[0]).to(eq("A product of birds"))
+      expect(test_word.definitions()[1]).to(eq("A tasty treat"))
+      expect(test_word2.definitions()).to(eq(["A product of grains","A breadly treat"]))
+      expect(test_word2.definitions()[0]).to(eq("A product of grains"))
+      expect(test_word2.definitions()[1]).to(eq("A breadly treat"))
+      expect(test_word3.definitions()).to(eq(["A product of Bovine (generally speaking)","A milky treat"]))
+      expect(test_word3.definitions()[0]).to(eq("A product of Bovine (generally speaking)"))
+      expect(test_word3.definitions()[1]).to(eq("A milky treat"))
     end
   end
 end
