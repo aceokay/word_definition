@@ -9,4 +9,17 @@ describe(Word) do
     end
   end
 
+  describe('#save') do
+    it('saves a given instance of the Word class to the Word class array') do
+      test_word = Word.new({:word => 'cheese'})
+      test_word.save()
+      expect(Word.all()).to(eq([test_word]))
+    end
+  end
+
+  describe('.all') do
+    it('returns all saved instance items from the class Word') do
+      expect(Word.all()).to(eq([]))
+    end
+  end
 end
